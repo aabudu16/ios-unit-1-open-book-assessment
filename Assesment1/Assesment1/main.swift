@@ -45,34 +45,33 @@ func addToCart (user: Int){
     for i in cartInit.items{
         print(i)
     }
-     print(design2)
+    print(design2)
 }
 func checkout(){
     var total = 0.0
     for i in cartInit.items{total += i.price}
     if cashCredit {
-    print("With a 4% cash discount, your total comes to $\(total - total * 0.04)")
-    print("You saved \(total*0.04) 💵💵🎊 \nThank you for shopping at Pursuit Farms!")
+        print("With a 4% cash discount, your total comes to $\(total - total * 0.04)")
+        print("You saved \(total*0.04) 💵💵🎊 \nThank you for shopping at Pursuit Farms!")
     }
     else {print("The total will be $\(total)\nThank you for shopping at Pursuit Farms!")}}
-    print("Welcome to pursuit Farms \nWill you be paying with cash or credit? \nPlease input 0 for cash and 1 for credit")
-    let firstInput = getIntFromUser(total: 1, start: 0)
-    if firstInput == 0 {cashCredit = true}
-    while true {
-        print("what would you like to purchase? Enter the number of the product or -1 to stop")
-        let design = String(repeating: "-", count: 20)
-        print("\(design)\n---ALL ITEMS---")
-        for i in 0...4{
-            print("\(i): \(foodNames[i]): $\(foodPrice[i])")
-        }
-         print(design)
-        let secondInput = getIntFromUser(total: 4, start: -1)
-        if secondInput == -1{
-            break
-        }
-        addToCart(user: secondInput)
+print("Welcome to pursuit Farms \nWill you be paying with cash or credit? \nPlease input 0 for cash and 1 for credit")
+let firstInput = getIntFromUser(total: 1, start: 0)
+if firstInput == 0 {cashCredit = true}
+while true {
+    print("what would you like to purchase? Enter the number of the product or -1 to stop")
+    let design = String(repeating: "-", count: 20)
+    print("\(design)\n---ALL ITEMS---")
+    for i in 0...4{
+        print("\(i): \(foodNames[i]): $\(foodPrice[i])")
     }
-    checkout()
+    print(design)
+    let secondInput = getIntFromUser(total: 4, start: -1)
+    if secondInput == -1{
+        break
+    }
+    addToCart(user: secondInput)}
+checkout()
 
 
 
